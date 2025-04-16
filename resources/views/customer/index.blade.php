@@ -6,7 +6,7 @@
                 <div class="hero-content">
                     <h1>Perjalanan Menjadi Kenangan</h1>
                     <h4>Terbang dengan Nyaman: Layanan Terbaik untuk Setiap Penumpang </h4>
-                    <a href="{{ 'search' }}" class="btn btn-cta ">Traveling Sekarang</a>
+                    <a href="{{ route('search') }}" class="btn btn-cta ">Traveling Sekarang</a>
                 </div>
             </div>
         </section>

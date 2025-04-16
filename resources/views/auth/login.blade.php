@@ -91,7 +91,7 @@
             <h3>Login</h3>
         </div>
         <div class="card-body">
-            <form action="{{ route('login') }}" method="post">
+            <form action="{{ route('postLogin') }}" method="post">
                 @csrf
                 @method('POST')
                 <div class="form-group">

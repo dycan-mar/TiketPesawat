@@ -41,17 +41,29 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'role' => 'customer',
         ]);
+        $credetial = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
 
-        event(new Registered($user));
+        if (Auth::attempt($credetial)) {
+            $user = Auth::user();
 
-        Auth::login($user);
-
-        $user = Auth::user();
-        if ($user->role == 'admin') {
-            return redirect(route('admin.dashboard', absolute: false));
-        } elseif ($user->role == 'user') {
-            return redirect(route('dashboard', absolute: false));
+            return match ($user->role) {
+                'admin' => redirect('/admin'),
+                'customer' => redirect('/customer'),
+            };
         }
+        // event(new Registered($user));
+
+        // Auth::login($user);
+
+        // $userlogin = Auth::user();
+        // if ($userlogin->role == 'admin') {
+        //     return redirect()->to('admin');
+        // } elseif ($userlogin->role == 'user') {
+        //     return redirect()->to('customer');
+        // }
         // return redirect(route('dashboard', absolute: false));
     }
 }

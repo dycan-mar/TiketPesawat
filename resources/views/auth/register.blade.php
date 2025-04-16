@@ -87,8 +87,7 @@
             <h3 class="pt-3">Daftar</h3>
         </div>
         <div class="card-body px-4">
-            <form action="{{ route('register') }}" method="post">
-
+            <form action="{{ route('postRegister') }}" method="post">
                 @csrf
                 @method('POST')
                 <div class="form-group">
