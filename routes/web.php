@@ -5,6 +5,9 @@ use App\http\Controllers\bookingController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\tiketController;
+use App\Models\booking;
+use App\Models\pembayaran;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -24,7 +27,11 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('', function () {
-        return view('admin.dashboard');
+        $data = [
+            'pengguna' => User::where('role', 'customer')->count(),
+            'penjualan' => booking::where('status', 'dibayar')->sum('totalHarga')
+        ];
+        return view('admin.dashboard', $data);
     })->middleware(['auth', 'verified'])->name('dashboard');
 
 

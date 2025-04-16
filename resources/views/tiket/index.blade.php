@@ -5,28 +5,33 @@
         </div>
         <div class="card-body">
             <div class="row">
-                @foreach ($penerbangan as $p)
-                <div class="col-md-4 col-lg-3">
-                    <div class="card shadow">
-                        <div class="card-header">
-                            <h6 class="m-0 font-weight-bold text-primary">{{ $p->namaMaskapai }}</h6>
-                        </div>
-                        <div class="card-body">
-                            <h5>Rute :</h5>
-                            <p> {{ $p->asal }} ke {{ $p->tujuan }}</p>
-                            <p>Tanggal : {{\Carbon\Carbon::parse($p->tanggalPenerbangan)->format('d M Y') }}</p>
-                            <p>Jam Terbang : {{\Carbon\Carbon::parse($p->waktuPenerbangan)->format('H:i') }}</p>
-                            <p>Harga :RP{{ number_format($p->harga,'2',',','.') }}</p>
-                            <p>Tiket Tersedia: {{ $p->tiket_tersedia_count }}</p>
-                        </div>
-                        <div class="card-footer text-center">
-                            <a href="{{ route('tiket.show',$p->id) }}" class="btn btn-primary">Detail Tiket</a>
-                        </div>
+                @if ($penerbangan->count()<=0)
+                    <div class="col-12 d-flex justify-content-center">
+                    <h5 class="text-warning">Belum ada Tiket</h5>
+            </div>
+            @endif
+            @foreach ($penerbangan as $p)
+            <div class="col-md-4 col-lg-3">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">{{ $p->namaMaskapai }}</h6>
+                    </div>
+                    <div class="card-body">
+                        <h5>Rute :</h5>
+                        <p> {{ $p->asal }} ke {{ $p->tujuan }}</p>
+                        <p>Tanggal : {{\Carbon\Carbon::parse($p->tanggalPenerbangan)->format('d M Y') }}</p>
+                        <p>Jam Terbang : {{\Carbon\Carbon::parse($p->waktuPenerbangan)->format('H:i') }}</p>
+                        <p>Harga :RP{{ number_format($p->harga,'2',',','.') }}</p>
+                        <p>Tiket Tersedia: {{ $p->tiket_tersedia_count }}</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{{ route('tiket.show',$p->id) }}" class="btn btn-primary">Detail Tiket</a>
                     </div>
                 </div>
-                @endforeach
             </div>
+            @endforeach
         </div>
+    </div>
     </div>
 
     <!-- modal -->
