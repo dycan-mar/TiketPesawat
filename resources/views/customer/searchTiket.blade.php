@@ -64,7 +64,7 @@
         <div class="container mx-5 px-5">
             <div class="card shadow mb-4">
                 <div class="card-header py-3" style="background: linear-gradient(45deg, #1e1075, #0a3090);">
-                    <h6 class=" m-0 font-weight-bold text-light">Hasil Pencarian</h6>
+                    <h6 class=" m-0 font-weight-bold text-light">Tiket Tersedia</h6>
                 </div>
                 <div class="card-body">
                     <div class="row">
