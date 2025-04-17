@@ -35,6 +35,8 @@ class AuthenticatedSessionController extends Controller
                 'admin' => redirect('/admin'),
                 'customer' => redirect('/customer'),
             };
+        } else {
+            return redirect()->to('/login');
         }
     }
 
