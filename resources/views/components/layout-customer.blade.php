@@ -46,7 +46,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; SMKN 3 XI ACP code 2024</span>
+                        <span>Copyright &copy; SMKN 3 TUBAN code 2025</span>
                     </div>
                 </div>
             </footer>

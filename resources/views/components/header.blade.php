@@ -73,7 +73,10 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Apakah anda yakin ingin logout dari aplikasi absensi buatan kelompok 8 ?...</div>
+            <div class="modal-body">
+                Apakah anda yakin ingin logout Dari Aplikasi Tiket Pesawat ?.....
+
+            </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <form action="/logout" method="POST">
