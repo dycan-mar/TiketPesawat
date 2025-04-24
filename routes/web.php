@@ -3,6 +3,7 @@
 use App\Http\Controllers\penerbanganController;
 use App\http\Controllers\bookingController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\pembayaranController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\tiketController;
 use App\Models\booking;
@@ -38,6 +39,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('penerbangan', penerbanganController::class);
     Route::resource('tiket', tiketController::class);
     Route::resource('booking', bookingController::class);
+    Route::get('history', [pembayaranController::class, 'index'])->name('historyTransaksi');
 
     // Route Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

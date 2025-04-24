@@ -10,7 +10,6 @@
                     <div class="alert alert-danger text-center" role="alert">
                         <h4 class="alert-heading">Anda Belum Melakukan Transaksi</h4>
                     </div>
-
                     @else
                     @foreach ($pembayaran as $p)
                     <div class="col-md-5 col-lg-4 mb-4">

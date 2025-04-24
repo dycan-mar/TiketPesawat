@@ -19,6 +19,7 @@ class penerbanganController extends Controller
         $data = [
             'title' => 'Penerbangan',
             'penerbangan' => penerbangan::latest()->paginate(10),
+            'kota' => $response->json()
         ];
         return view('penerbangan.index', $data);
     }

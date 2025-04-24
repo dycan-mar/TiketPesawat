@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pembayaran;
 use Illuminate\Http\Request;
 
 class pembayaranController extends Controller
@@ -11,7 +12,10 @@ class pembayaranController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'pembayaran' => pembayaran::with(['booking', 'booking.penerbangan', 'booking.tiket', 'booking.user'])->get()
+        ];
+        return view('admin.history', $data);
     }
 
     /**

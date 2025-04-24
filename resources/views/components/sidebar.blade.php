@@ -25,6 +25,9 @@
     <x-nav-link href="{{ route('booking.index') }}" :active="request()->is('admin/booking*')" icon="fas fa-fw fa-address-card">
         Data Booking
     </x-nav-link>
+    <x-nav-link href="{{ route('historyTransaksi') }}" :active="request()->is('admin/history*')" icon="fas fa-fw fa-address-card">
+        History
+    </x-nav-link>
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
