@@ -21,15 +21,15 @@
                         <tr>
                             <td>{{ $t->no }}</td>
                             <td>
-                                @if ( $t->name )
-                                {{ $t->name }}
+                                @if ( $t->user )
+                                {{ $t->user->name }}
                                 @else
                                 Menunggu Pemesanan
                                 @endif
                             </td>
                             <td>
-                                @if ($t->idBooking)
-                                {{ $t->idBooking }}
+                                @if ($t->id_booking)
+                                {{ $t->id_booking }}
                                 @else
                                 Menunggu Pemesanan
                                 @endif

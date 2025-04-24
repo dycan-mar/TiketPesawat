@@ -42,7 +42,7 @@ class tiketController extends Controller
     {
         $data = [
             'title' => 'Tiket',
-            'tiket' => tiket::where('idPenerbangan', $id)->get(),
+            'tiket' => tiket::with('user')->where('idPenerbangan', $id)->get(),
             'maskapai' => penerbangan::find($id)->namaMaskapai,
         ];
         return view('tiket.show', $data);
