@@ -6,6 +6,7 @@ use App\Models\booking;
 use App\Models\pembayaran;
 use App\Models\penerbangan;
 use App\Models\tiket;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -138,5 +139,26 @@ class CustomerController extends Controller
             'pembayaran' => pembayaran::with(['booking', 'booking.penerbangan', 'booking.tiket'])->get(),
         ];
         return view('customer.history', $data);
+    }
+    public function detailHistory($id)
+    {
+        $data = [
+            'title' => 'history',
+            'booking' => booking::with(['user', 'penerbangan'])->where('idUser', Auth::user()->id)->find($id),
+            'tiket' => tiket::with('penerbangan')->where('idUser', Auth::user()->id)->where('id_booking', $id)->get()
+        ];
+        return view('customer.detailHistory', $data);
+    }
+    public function convertpdf(Request $request)
+    {
+        $id = $request->id;
+        $data = [
+            'title' => 'history',
+            'booking' => booking::with(['user', 'penerbangan'])->where('idUser', Auth::user()->id)->find($id),
+            'tiket' => tiket::with('penerbangan')->where('idUser', Auth::user()->id)->where('id_booking', $id)->get()
+        ];
+        $pdf = Pdf::loadView('customer.templatepdf', $data);
+        $pdf->download('transaksi' . $id . '.pdf');
+        return redirect()->to('customer/history');
     }
 }

@@ -15,11 +15,11 @@ class penerbanganController extends Controller
      */
     public function index(): View
     {
-        $response = Http::get('https://portaldata.kemenhub.go.id/api/sigita/airport_pt_all?&format=json');
+        // $response = Http::get('https://portaldata.kemenhub.go.id/api/sigita/airport_pt_all?&format=json');
         $data = [
             'title' => 'Penerbangan',
             'penerbangan' => penerbangan::latest()->paginate(10),
-            'kota' => $response->json()
+            // 'kota' => $response->json()
         ];
         return view('penerbangan.index', $data);
     }

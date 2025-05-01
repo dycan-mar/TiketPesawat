@@ -27,11 +27,12 @@
                                 <div class="d-flex justify-content-between">
                                     <h6 class="fw-bold">Harga :RP{{ number_format($p->booking->totalHarga,'2',',','.') }}</h6>
                                     <span class="fw-bold">{{ $p->status }}</span>
+
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-between">
-                                    <a href="{{ route('detailBooking',$p->booking->id) }}" class="btn btn-primary">detail</a>
+                                    <a href="{{ route('detailHistory',$p->booking->id) }}" class="btn btn-primary">detail</a>
                                 </div>
                             </div>
                         </div>

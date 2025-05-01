@@ -66,6 +66,8 @@ Route::prefix('customer')->middleware(['auth', 'role:customer'])->group(function
     Route::post('postBeli', [CustomerController::class, 'postBeli'])->name('postBeli');
 
     Route::get('history', [CustomerController::class, 'history'])->name('history');
+    Route::get('detaiHistory/{id}', [CustomerController::class, 'detailHistory'])->name('detailHistory');
+    Route::post('convert', [CustomerController::class, 'convertpdf'])->name('convert');
 });
 
 require __DIR__ . '/auth.php';
